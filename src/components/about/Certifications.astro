@@ -1,0 +1,29 @@
+---
+import { getTranslations } from "../../i18n/utils";
+
+const { locale } = Astro.params;
+const t = getTranslations(locale ?? "en");
+---
+
+<div class="flex flex-col justify-center items-center w-full">
+  <div>
+    <h1 class="font-elMessiri text-4xl mb-3">
+      {t.about.certificationsLicenses.title}
+    </h1>
+  </div>
+  <ul class="list-disc pl-6">
+    {
+      t.about.certificationsLicenses.certifications.map((i, idx) => {
+        return (
+          <li>
+            {`${i.date} - `}
+            <a href={i.link} target="_blank" rel="noreferrer">
+              {i.title}
+            </a>
+            {` - `} <span class="underline pl-2">Coursera.org</span>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>

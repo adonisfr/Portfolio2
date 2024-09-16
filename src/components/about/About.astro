@@ -1,0 +1,43 @@
+---
+import { getTranslations } from "../../i18n/utils";
+import Certifications from "./Certifications.astro";
+import Education from "./Education.astro";
+import Skill from "./Skill.astro";
+import { skills } from "./skills";
+
+const { locale } = Astro.params;
+const t = getTranslations(locale ?? "en");
+---
+
+<section
+  id="about"
+  class="flex flex-col gap-16 pt-32 lg:flex-row dark:text-gray-300"
+>
+  <div class="flex flex-col w-full gap-5 lg:w-1/2">
+    <h1 class="font-elMessiri text-7xl text-center">
+      {t.about.title}
+    </h1>
+    <p>{t.about?.summary}</p>
+    <div class="hidden lg:flex">
+      <Education />
+    </div>
+    <div class="hidden lg:flex">
+      <Certifications />
+    </div>
+  </div>
+  <div class="flex flex-col w-full lg:w-1/2 gap-8">
+    <h1 class="font-elMessiri text-5xl text-center">
+      {t.about.skills}
+    </h1>
+    <div class="flex flex-row flex-wrap px-5 justify-center gap-6">
+      {
+        skills.map((item) => (
+          <Skill key={item.name} name={item.name} logo={item.image} />
+        ))
+      }
+    </div>
+  </div>
+  <div class="lg:hidden">
+    <Education />
+  </div>
+</section>

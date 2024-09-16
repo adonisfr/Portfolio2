@@ -1,0 +1,36 @@
+---
+import { getTranslations } from "../../i18n/utils";
+import CardProject from "./CardProject.astro";
+import { projects } from "./projects";
+
+const { locale } = Astro.params;
+const t = getTranslations(locale ?? "en");
+---
+
+<section
+  id="projects"
+  class="flex flex-col justify-center items-center pt-20 lg:pt-28 gap-10"
+>
+  <h1 class="font-elMessiri text-7xl dark:text-gray-300">
+    {t.project.title}
+  </h1>
+  <div class="flex flex-col md:flex-row flex-wrap justify-center w-full gap-5">
+    {
+      projects
+        .filter((i) => i.visible)
+        .map((p) => (
+          <div>
+            <CardProject
+              name={p.name}
+              tags={p.tags}
+              code={p.code}
+              preview={p.preview}
+              picture={p.image}
+              company={p.company}
+              link={p.link}
+            />
+          </div>
+        ))
+    }
+  </div>
+</section>

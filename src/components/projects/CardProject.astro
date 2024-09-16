@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import BtnLink from "./BtnLink.astro";
+
+const { picture, name, code, preview, tags, company, link } = Astro.props;
+---
+
+<div
+  class="flex flex-col bg-slate-100 dark:bg-slate-800 pb-4 gap-1 rounded-t-lg rounded-b-xl shadow-lg hover:shadow-black/40 dark:hover:shadow-gray-600/40"
+>
+  <div class="relative w-80 h-52">
+    <Image src={picture} alt="picture" class="w-full h-full" />
+    <div
+      class="absolute bottom-2 right-0 bg-gray-500 font-semibold text-white px-1"
+    >
+      {
+        link ? (
+          <a href={link} target="_blank">
+            {company}
+          </a>
+        ) : (
+          company
+        )
+      }
+    </div>
+  </div>
+  <div class="px-3 py-2">
+    <div class="pb-3">
+      <h1 class="font-semibold text-lg dark:text-gray-200">{name}</h1>
+      <div class="flex gap-1">
+        {
+          tags.map((t: string) => (
+            <div class="flex rounded-sm bg-slate-300 px-1 cursor-default">
+              <span class="text-xs font-bold text-gray-900/70">{t}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="space-x-2">
+      <BtnLink text="Preview" href={preview} />
+      <BtnLink text="Code" href={code} />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+---
+import { getTranslations } from "../../i18n/utils";
+import Menu from "./Menu";
+
+const { locale } = Astro.params;
+const t = getTranslations(locale ?? "en");
+
+const links = [
+  { name: t.navbar.links.home, href: "#home" },
+  { name: t.navbar.links.about, href: "#about" },
+  { name: t.navbar.links.project, href: "#projects" },
+  { name: t.navbar.links.contact, href: "#contact" },
+];
+---
+
+<header>
+  <nav
+    class="h-16 bg-gray-800 py-0 px-4 fixed shadow-md shadow-slate-300 top-0 left-0 w-full z-10 dark:shadow-black/70 bg-white dark:bg-slate-900"
+  >
+    <div
+      class="h-16 container mx-auto flex justify-between items-center bg-white dark:bg-slate-900 mt-0"
+    >
+      {/* Logo */}
+      <a href="#" class="font-semibold text-3xl dark:text-white">
+        {"{"}A2nis F.R{"}"}
+      </a>
+      <Menu client:load links={links} locale={locale} />
+    </div>
+  </nav>
+</header>

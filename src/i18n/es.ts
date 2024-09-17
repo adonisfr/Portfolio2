@@ -9,7 +9,7 @@ export const translations = {
   },
   presentation: {
     greeting: "Hola! 👋 Mi nombre es",
-    profession: `Soy desarrollador Front-end`,
+    profession: `Soy desarrollador Full-Stack`,
   },
   about: {
     title: "Acerca de mi",

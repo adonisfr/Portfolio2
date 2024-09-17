@@ -3,8 +3,8 @@ import { getTranslations } from "../../i18n/utils";
 import CardProject from "./CardProject.astro";
 import { projects } from "./projects";
 
-const { locale } = Astro.params;
-const t = getTranslations(locale ?? "en");
+const { currentLocale } = Astro;
+const t = getTranslations(currentLocale ?? "en");
 ---
 
 <section

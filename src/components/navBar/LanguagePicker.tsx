@@ -1,10 +1,10 @@
 import { type ChangeEvent } from "react";
-import { supportedLocales } from "../../i18n/config";
+import { supportedLocales, defaultLocale } from "../../i18n/config";
 
 const navigateToUrl = (event: ChangeEvent<HTMLSelectElement>) => {
   const language = event.target.value;
   if (language) {
-    window.location.href = `/${language}/`; // redirect
+    window.location.href = language === defaultLocale ? "/" : `/${language}/`; // redirect
   }
 };
 

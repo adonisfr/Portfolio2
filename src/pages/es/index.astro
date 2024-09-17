@@ -1,6 +1,6 @@
 ---
-import App from "../App.astro";
-import { supportedLocales } from "../i18n/config";
+import App from "../../App.astro";
+import { supportedLocales } from "../../i18n/config";
 
 export async function getStaticPaths() {
   const paths = supportedLocales.map((locale) => {

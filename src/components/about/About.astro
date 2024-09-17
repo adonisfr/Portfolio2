@@ -5,8 +5,8 @@ import Education from "./Education.astro";
 import Skill from "./Skill.astro";
 import { skills } from "./skills";
 
-const { locale } = Astro.params;
-const t = getTranslations(locale ?? "en");
+const { currentLocale } = Astro;
+const t = getTranslations(currentLocale ?? "en");
 ---
 
 <section

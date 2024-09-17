@@ -3,8 +3,8 @@ import { Image } from 'astro:assets';
 import picture from '../assets/f.jpg'
 import { getTranslations } from '../i18n/utils';
 
-const { locale } = Astro.params; 
-const t = getTranslations(locale ?? "en"); 
+const { currentLocale } = Astro; 
+const t = getTranslations(currentLocale ?? "en"); 
 ---
 
 

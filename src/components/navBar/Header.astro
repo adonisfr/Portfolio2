@@ -2,8 +2,8 @@
 import { getTranslations } from "../../i18n/utils";
 import Menu from "./Menu";
 
-const { locale } = Astro.params;
-const t = getTranslations(locale ?? "en");
+const { currentLocale } = Astro;
+const t = getTranslations(currentLocale ?? "en");
 
 const links = [
   { name: t.navbar.links.home, href: "#home" },
@@ -24,7 +24,7 @@ const links = [
       <a href="#" class="font-semibold text-3xl dark:text-white">
         {"{"}A2nis F.R{"}"}
       </a>
-      <Menu client:load links={links} locale={locale} />
+      <Menu client:load links={links} locale={currentLocale} />
     </div>
   </nav>
 </header>

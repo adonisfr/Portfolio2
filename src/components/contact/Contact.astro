@@ -2,8 +2,8 @@
 import { getTranslations } from "../../i18n/utils";
 import Form from "./Form";
 
-const { locale } = Astro.params;
-const t = getTranslations(locale ?? "en");
+const { currentLocale } = Astro;
+const t = getTranslations(currentLocale ?? "en");
 ---
 
 <section

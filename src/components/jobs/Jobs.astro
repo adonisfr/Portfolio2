@@ -2,8 +2,8 @@
 import { getTranslations } from "../../i18n/utils";
 import JobCard from "./JobCard";
 import { jobs } from "./jobs";
-const { locale } = Astro.params;
-const t = getTranslations(locale ?? "en");
+const { currentLocale } = Astro;
+const t = getTranslations(currentLocale ?? "en");
 ---
 
 <div class="flex flex-col items-center w-full dark:text-gray-300">
